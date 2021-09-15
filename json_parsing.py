@@ -7,6 +7,6 @@ json_text = '{' \
                 ']' \
             '}'
 
-json = json.loads(json_text)
-print(json["messages"][1]["message"])
+obj = json.loads(json_text)
+print(obj["messages"][1]["message"])
 
