@@ -1,5 +1,3 @@
-import json
-
 import requests
 
 url = "https://playground.learnqa.ru/ajax/api/compare_query_type"
