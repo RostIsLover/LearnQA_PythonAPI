@@ -54,6 +54,6 @@ class TestUserAgent:
         validate(instance=response.json(), schema=self.schema)
 
         # Проверки ожидаемых полей
-        assert self.user_agents_dict[user_agent]['platform'] == response.json()['platform'], f"platform doesn't match. UA"
-        assert self.user_agents_dict[user_agent]['browser'] == response.json()['browser'], f"browser doesn't match. UA"
+        assert self.user_agents_dict[user_agent]['platform'] == response.json()['platform'], f"platform doesn't match"
+        assert self.user_agents_dict[user_agent]['browser'] == response.json()['browser'], f"browser doesn't match"
         assert self.user_agents_dict[user_agent]['device'] == response.json()['device'], f"device doesn't match"
