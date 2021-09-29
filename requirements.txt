@@ -1,5 +1,4 @@
 allure-pytest
 requests
 pytest
-beautifulsoup4
 jsonschema
