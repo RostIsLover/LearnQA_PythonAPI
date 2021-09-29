@@ -2,3 +2,4 @@ allure-pytest
 requests
 pytest
 jsonschema
+beautifulsoup4
