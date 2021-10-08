@@ -1,5 +1,10 @@
+import json
 import json.decoder
+from datetime import datetime
+from myFrameWork.lib.assertions import Assertions
+import random
 
+import requests
 from requests import Response
 
 class BaseCase:
@@ -19,3 +24,34 @@ class BaseCase:
 
         assert name in response_as_dict, f"Response JSON doesn't have key '{name}'"
         return response_as_dict[name]
+
+    def prepare_registration_data(self, email=None):
+        if email is None:
+            base_part = "learnqa"
+            domain = "example.com"
+            random_part = datetime.now().strftime("%m%d%Y%H%S")+str(random.random())
+            email = f"{base_part}{random_part}@{domain}"
+        return {
+            'password': '123',
+            'username': 'learnqa',
+            'firstName': 'learnqa',
+            'lastName': 'learnqa',
+            'email': email
+        }
+    def getIncorrectEmail(self):
+        base_part = "learnqa"
+        domain = "example.com"
+        random_part = datetime.now().strftime("%m%d%Y%H%S")+str(random.random())
+        incorrect_email = f"{base_part}{random_part}{domain}"
+        return incorrect_email
+
+    def register_new_user(self):
+        register_data = self.prepare_registration_data()
+        response = requests.post("https://playground.learnqa.ru/api/user/", data=register_data)
+
+        return response
+
+
+
+
+
